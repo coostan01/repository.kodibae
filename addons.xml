@@ -452,6 +452,94 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
+<addon id="plugin.video.seren" version="0.2.35" name="Seren" provider-name="Nixgates">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.requests" version="2.19.1" />
+		<import addon="script.module.beautifulsoup4" version="4.5.3"/>
+		<import addon="script.module.metahandler" version="1.0.0" />
+		<import addon="plugin.video.youtube" version="6.2.0"/>
+		<import addon="script.module.addon.signals" version="0.0.1"/>
+		<import addon="script.module.dateutil" version="2.7.3"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="seren.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Seren - This Addon is currently in beta. Please be aware there may be bugs present</summary>
+		<description lang="en">
+		</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<disclaimer lang="en">The author of this addon takes no responsibility for any 3rd party intergration or modification of this software, please ensure your use of this software abides by your local and insterstate laws.</disclaimer>
+		<assets>
+			<icon>temp-icon.png</icon>
+			<fanart>temp-fanart.png</fanart>
+		</assets>
+		<news>
+Changelog 0.2.35:
+Seren now utilizes Kodi Repository dateutil package
+
+Changelog 0.2.34:
+Cleaned up logging
+
+Changelog 0.2.33:
+Premiumize Cloud Inspection now includes size for identified items
+Cloud Inspection threads now gracefully exit if pre-emptive termination limit is reached
+Increased file identification
+Fixed delay with getsources window showing
+
+Changelog 0.2.32:
+Fixed is_aired format error
+Fixed issue with hide SD removing cloud files
+
+Changelog 0.2.31:
+Fixed issue with un-aired episodes being added to playlist after smartplay speedup
+Seren now confirms TMDB year information with IMDB prior to scraping
+Fixed issues with Seren identifying sources from the users premiumize cloud
+
+Changelog 0.2.30:
+Fixed dictionary key issue for show items in smartPlay modules created with new workaround
+
+Changelog 0.2.29:
+Added removal of duplicate space characters to clean title function
+Added support for single episode folders to Premiumize cloud inspection
+
+Changelog 0.2.28:
+Fixed issue with addonName variable change
+
+Changelog 0.2.27:
+Adjusted RD cache inspection to allow multiple video files within a single movie item
+Adjust RD movie resolving to pull largest file out of torrent item
+Seren now polls Kodi for supported video containers instead of hardcoding
+Fixed key error when marking episode as watched in local database
+Added settings cache dictionary to reduce Kodi's logging of "trying to load setting definitions from old format..."
+Cleaned up addon logging
+
+Changelog 0.2.26:
+Fix Auto Episode Resume
+
+Changelog 0.2.25:
+Movie years now uses the popular API endpoint
+Added option to enable Debrid Cloud inspection during scrape
+Added Upcoming Episodes to My Shows menu
+Added By Actor search to Discover Show/Movie menus
+"Hide Un-Aired Episodes" renamed to "Hide Un-Aired Items"
+"Hide Un-Aired Items" setting now applies to movie/show/season menus as well
+Marking show/season item as watched/collected now triggers a background re-sync of relevant items
+Increased resolving restrictions
+Playstyle for Episodes and Movies are now seperate
+Fixed issue with Premiumize Torrent File Picker
+Speed Increase for playlist building
+
+		</news>
+	</extension>
+</addon>
+
 <addon id="repository.jsergio" name="jsergio repo" version="1.0.4" provider-name="jsergio">
 	<extension point="xbmc.addon.repository" name="jsergio repo">
         <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
@@ -643,6 +731,37 @@ Added Trakt Manager
 	</extension>
 </addon>
 
+<addon id="plugin.video.SportsDevil" name="SportsDevil" version="2019.05.20" provider-name="SportsDevil">
+	<requires>
+		<import addon="xbmc.python" version="2.25.0"/>
+		<import addon="script.module.requests" />
+		<import addon="script.module.parsedom" version="2.5.2"/>
+		<import addon="script.module.inputstreamhelper" version="0.3.3"/>
+		<import addon="script.module.resolveurl" version="5.0.00"/>
+        <import addon="script.module.streamlink.base" />
+        <import addon="repository.kodibae" />
+        <import addon="repository.thebackup" />
+        <import addon="repository.xbmchub" />
+        <import addon="plugin.program.indigo" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="maintv.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<description>[I]There can only be one.[/I][CR][CR]Unofficial Kodi Addon.</description>
+		<disclaimer>There can only be one.</disclaimer>
+		<summary>SportsDevil</summary>
+		<language></language>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+		<website></website>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
 <addon id="repository.xbmchub" name="TVADDONS.CO Add-on Repository" version="3.0.0" provider-name="tvaddons">
 	<extension point="xbmc.addon.repository" name="TVADDONS.CO Add-on Repository">
 	<dir>
@@ -666,72 +785,6 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 		<platform>all</platform>
                 <forum>https://www.tvaddons.co/forums</forum>
                 <website>https://www.tvaddons.co</website>
-	</extension>
-</addon>
-
-<addon id="plugin.video.seren" version="0.2.30" name="Seren" provider-name="Nixgates">
-	<requires>
-		<import addon="xbmc.python" version="2.19.0" />
-		<import addon="script.module.requests" version="2.19.1" />
-		<import addon="script.module.beautifulsoup4" version="4.5.3"/>
-		<import addon="script.module.metahandler" version="1.0.0" />
-		<import addon="plugin.video.youtube" version="6.2.0"/>
-		<import addon="script.module.addon.signals" version="0.0.1"/>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="seren.py">
-		<provides>video</provides>
-	</extension>
-	<extension point="xbmc.service" library="service.py" />
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Seren - This Addon is currently in beta. Please be aware there may be bugs present</summary>
-		<description lang="en">
-		</description>
-		<platform>all</platform>
-		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-		<forum></forum>
-		<website></website>
-		<source></source>
-		<disclaimer lang="en">The author of this addon takes no responsibility for any 3rd party intergration or modification of this software, please ensure your use of this software abides by your local and insterstate laws.</disclaimer>
-		<assets>
-			<icon>temp-icon.png</icon>
-			<fanart>temp-fanart.png</fanart>
-		</assets>
-		<news>
-Changelog 0.2.30:
-Fixed dictionary key issue for show items in smartPlay modules created with new workaround
-
-Changelog 0.2.29:
-Added removal of duplicate space characters to clean title function
-Added support for single episode folders to Premiumize cloud inspection
-
-Changelog 0.2.28:
-Fixed issue with addonName variable change
-
-Changelog 0.2.27:
-Adjusted RD cache inspection to allow multiple video files within a single movie item
-Adjust RD movie resolving to pull largest file out of torrent item
-Seren now polls Kodi for supported video containers instead of hardcoding
-Fixed key error when marking episode as watched in local database
-Added settings cache dictionary to reduce Kodi's logging of "trying to load setting definitions from old format..."
-Cleaned up addon logging
-
-Changelog 0.2.26:
-Fix Auto Episode Resume
-
-Changelog 0.2.25:
-Movie years now uses the popular API endpoint
-Added option to enable Debrid Cloud inspection during scrape
-Added Upcoming Episodes to My Shows menu
-Added By Actor search to Discover Show/Movie menus
-"Hide Un-Aired Episodes" renamed to "Hide Un-Aired Items"
-"Hide Un-Aired Items" setting now applies to movie/show/season menus as well
-Marking show/season item as watched/collected now triggers a background re-sync of relevant items
-Increased resolving restrictions
-Playstyle for Episodes and Movies are now seperate
-Fixed issue with Premiumize Torrent File Picker
-Speed Increase for playlist building
-			
-		</news>
 	</extension>
 </addon>
 
